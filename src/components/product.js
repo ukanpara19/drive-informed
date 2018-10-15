@@ -50,7 +50,7 @@ class Product extends Component{
   render(){
     return (
       <div className= 'card-flex'>
-      <button onClick={this.OnmonthlysortASCClick}>EMI-ASC</button>      
+      {/* <button onClick={this.OnmonthlysortASCClick}>EMI-ASC</button>       */}
         {objsJSON.map(function(informed){
             return(
               <ProductDetails productInfo={informed} />

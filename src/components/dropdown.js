@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import './style/dropdown.css';
 import Data from '../data/data.json';
-import {monthlysortASC} from './product';
-import ProductDetails from './productDetails';
 
 class dropdown extends Component {
     constructor() {
@@ -11,9 +9,8 @@ class dropdown extends Component {
           showMenu: false,
           data: Data,
         };
-        // this.showMenu = this.showMenu.bind(this);
-        // this.closeMenu = this.closeMenu.bind(this);
-        // this.monthlysortDEC = this.monthlysortDEC.bind(this);
+        this.showMenu = this.showMenu.bind(this);
+        this.closeMenu = this.closeMenu.bind(this);
       }
       
       showMenu(event) {
