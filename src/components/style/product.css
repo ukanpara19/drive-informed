@@ -1,0 +1,145 @@
+.img-class {
+    height: auto; 
+    width: auto; 
+    max-width: 100px; 
+    max-height: 100px;
+}
+
+.product-container{
+  height: 80%;
+    width: 50%;
+    border: 2px solid;
+  }
+
+ .card-class {
+  height: 18%;
+  width: 31%;
+  font-size: 14px;
+  font-family: Fira Sans,Helvetica Neue,Arial,Helvetica,sans-serif;
+  font-weight: bold;
+  margin-left: 5%; 
+  margin-top: 4%;
+  float: left;
+  margin-left: 10px; 
+  padding-right: 20px;
+  margin-top: 7%;
+  border: 1px solid #d0d1d1;
+  background-color: #ffffff;
+ } 
+
+ /* Custom page CSS - MOBILE first */
+body > .container {
+  padding: 60px 15px 0;
+}
+
+.container .text-muted {
+  margin: 15px 0;
+  text-align: start;
+}
+
+.card-flex {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	-moz-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	-o-flex-wrap: wrap;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+  width: 50%;
+
+}
+.card-flex-item {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex; 
+	width: 100%;
+	padding-right: 0;
+}
+.card-flex-wrapper {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+
+  background-color: #ffffff;
+    border-radius: 5px;
+    margin-bottom: 1em;
+    margin-right: 0;
+    padding: 1em;
+}
+.card-flex-image img {
+	opacity: 1;
+}
+.card-flex-button {
+	background-color: white;
+	border: 1px solid #333; 
+	padding: 0.5rem;
+	color: #333;
+	text-align: center;
+	text-decoration: none; 
+}
+.card-flex-button:hover {
+	color: #333;
+	text-decoration: none; 
+}
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+
+/* Custom page CSS - iPad/Desktop  */
+
+@media (min-width: 768px) {
+	.container .text-muted {
+		text-align: end;
+	} 
+	.card-flex-item {
+		width: 33.33%;
+		padding-right: 1em; 
+	} 
+	.card-flex-item:nth-child(3n) {
+		padding-right: 0;
+  } 
+  
+	.card-flex-wrapper:hover {
+		cursor: pointer;
+		background-color: white;
+		box-shadow: rgba(0, 0, 0, 0.45) 0px 0px 20px 0px;
+	}
+	.card-flex-wrapper:hover .card-flex-image img {
+		opacity: 1;
+		transition: opacity 0.5s cubic-bezier(.43,.41,.22,.91);
+	}
+	.card-flex-wrapper:hover .card-flex-button {
+		background-color: #FFFFCC; 
+	}
+}
+.emi-class {
+	margin-left : 10%;
+	color: #298e67;
+
+}
+.downPayment-class {
+	margin-left: 5%; 
+}
+
+.heading-class {
+	  font-size: 14px;
+    font-weight: 500;
+    text-align: left;
+}
+.miles-class {
+	color: #575a5a;
+	font-size: 14px;
+	font-weight: 300;
+}

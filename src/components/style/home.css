@@ -1,0 +1,116 @@
+* {
+    box-sizing: border-box;
+}
+
+.home-class {
+    background-color: #f7f7f7
+}
+/* Create three equal columns that floats next to each other */
+.slider-col {
+    float: left;
+    width: 25%;
+    padding-bottom: 30%;
+    margin-left: 10px; 
+    padding-right: 20px;
+    margin-top: 7%;
+    padding-top: 1%;
+    border: 1px solid #d0d1d1;
+    background-color: #f7f7f7;
+}
+.product-col {
+    float: left;
+    width: 70%;
+    margin-left: 4%;
+    margin-top: 1%; 
+    background-color: #f7f7f7;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+}
+
+/* Card Styling
+
+/* Custom page CSS - MOBILE first */
+body > .container {
+  padding: 60px 15px 0;
+}
+
+.container .text-muted {
+  margin: 15px 0;
+  text-align: start;
+}
+
+.card-flex {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	-moz-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	-o-flex-wrap: wrap;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	width: 100%;
+}
+.card-flex-item {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex; 
+	width: 100%;
+	padding-right: 0;
+}
+.card-flex-wrapper {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+
+	  background-color: #ffffff;
+    border-radius: 5px;
+    margin-bottom: 1em;
+    margin-right: 0;
+    padding: 1em;
+}
+
+
+
+/* Custom page CSS - iPad/Desktop  */
+
+@media (min-width: 768px) {
+	.container .text-muted {
+		text-align: end;
+	} 
+	.card-flex-item {
+		width: 33.33%;
+		padding-right: 1em; 
+	} 
+	.card-flex-item:nth-child(3n) {
+		padding-right: 0;
+	} 
+
+	.card-flex-wrapper:hover {
+		cursor: pointer;
+		background-color: white;
+		box-shadow: rgba(0, 0, 0, 0.45) 0px 0px 20px 0px;
+	}
+
+	.card-flex-wrapper:hover .card-flex-button {
+		background-color: #ffffff; 
+	}
+}
+.dropdown-class {
+	height: 100px;
+	padding-left: 80%;
+	padding-top: 2%;
+}
