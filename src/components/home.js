@@ -16,44 +16,12 @@ class Home extends Component {
       Data: Data
     }
   }
-  
-//  DownPaymentSortASC = objsJSON.sort(function (a, b){
-//   for(let i= 0 ; i<objsJSON.length ; i++){
-//     return a.partnerPrequalification.downPayment - b.partnerPrequalification.downPayment;
-//   }
-// }
-// );
-
- monthlysortASC = objsJSON.sort(function (a, b){
-  for(let i= 0 ; i<objsJSON.length ; i++){
-    return a.partnerPrequalification.emi - b.partnerPrequalification.emi;
-  }
-}
-);
-
-//  monthlysortDEC = objsJSON.sort(function (a, b){
-//       for(let i= 0 ; i<objsJSON.length ; i++){
-//         return b.partnerPrequalification.emi - a.partnerPrequalification.emi;
-//       }
-//     }
-//     );
-
-//   DownPaymentSortDEC = objsJSON.sort(function (a, b){
-//       for(let i= 0 ; i<objsJSON.length ; i++){
-//         return b.partnerPrequalification.downPayment - a.partnerPrequalification.downPayment;
-//       }
-//     }
-//     );
-
 
   render() {
     return (
       <div className='home-class'>
         <div className="slider-col">
           <SideBar />
-        </div>
-        <div className = "dropdown-class">
-          <Dropdown />
         </div>
         <div className="product-col">
           <Product 

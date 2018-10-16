@@ -2,6 +2,7 @@ import React , {Component}  from 'react';
 import './style/product.css';
 import ProductDetails from './productDetails';
 import Data from '../data/data.json';
+import Dropdown from './dropdown';
 
   const myData = Data.autos;
   const stringJSON = JSON.stringify(myData);
@@ -10,54 +11,63 @@ import Data from '../data/data.json';
 class Product extends Component{
   constructor(props){
     super(props)
-    this.state = {
-      OnmonthlysortDECClick : false,
-      OnmonthlysortASCClick: false,
-      OnDownPaymentSortASCClick:false,
-      OnDownPaymentSortDECClick: false      
+    this.state = {  
     }
     this.OnDownPaymentSortASCClick = this.OnDownPaymentSortASCClick.bind(this);
+    this.OnmonthlysortASCClick  =this.OnmonthlysortASCClick.bind(this);
+    this.OnmonthlysortDECClick  = this.OnmonthlysortDECClick.bind(this);
+    this.OnDownPaymentSortDECClick = this.OnDownPaymentSortDECClick.bind(this);
   }
 
-  OnmonthlysortDECClick() {
-    objsJSON.sort((a, b) =>{
+  OnmonthlysortDECClick () { 
+    return objsJSON.sort((a, b) =>{
     for(let i= 0 ; i<Data.autos.length ; i++){
-      return console.log (b.partnerPrequalification.emi - a.partnerPrequalification.emi);
+      return b.partnerPrequalification.emi - a.partnerPrequalification.emi;
     }
   });
 }
+
  OnmonthlysortASCClick () {
-  objsJSON.sort(function (a, b){
+  return objsJSON.sort(function (a, b){
    for(let i= 0 ; i<objsJSON.length ; i++){
-     return console.log(a.partnerPrequalification.emi - b.partnerPrequalification.emi);
+     return a.partnerPrequalification.emi - b.partnerPrequalification.emi;
    }
-   this.setState({ OnmonthlysortASCClick: true});
  });
 }
 
-  OnDownPaymentSortDECClick (){ objsJSON.sort(function (a, b){
+  OnDownPaymentSortDECClick () { 
+    return objsJSON.sort(function (a, b){
     for(let i= 0 ; i<objsJSON.length ; i++){
       return b.partnerPrequalification.downPayment - a.partnerPrequalification.downPayment;
     }
   });
 }
-  OnDownPaymentSortASCClick (){ objsJSON.sort(function (a, b){
+  OnDownPaymentSortASCClick (){ 
+    return objsJSON.sort(function (a, b){
     for(let i= 0 ; i<objsJSON.length ; i++){
       return a.partnerPrequalification.downPayment - b.partnerPrequalification.downPayment;
     }
   });
 }
+
   render(){
     return (
-      <div className= 'card-flex'>
-      {/* <button onClick={this.OnmonthlysortASCClick}>EMI-ASC</button>       */}
-        {objsJSON.map(function(informed){
-            return(
-              <ProductDetails productInfo={informed} />
+      <div>
+          <Dropdown 
+            OnmonthlySortASC = {this.OnmonthlysortASCClick()}
+            OnmonthlySortDEC = {this.OnmonthlysortDECClick()}
+            OnDownPaymentSortASC = {this.OnDownPaymentSortASCClick()}
+            OnDownPaymentSortDEC = {this.OnDownPaymentSortDECClick()}
+          />
+          <div className= 'card-flex'>
+            {objsJSON.map(function(informed){
+              return(
+                <ProductDetails productInfo={informed} />
             )
           })
         }
       </div> 
+      </div>
     );
   }
 }
