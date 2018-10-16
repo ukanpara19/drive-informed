@@ -6,7 +6,7 @@ const SliderTip= createSliderWithTooltip(Slider);
 
 class SliderBar extends Component {
   constructor(props){
-    super ();
+    super (props);
     this.state = {
       MaxMonthyPayment: 1000,
       MaxDownPayment: 3560,
@@ -21,7 +21,14 @@ class SliderBar extends Component {
     this.setState({MaxDownPayment});
   }
 
+//   onfilter = () => { Data.autos.filter(function(i,n){
+//     const maxMOnthy = this.state.MaxMonthyPayment
+//     return n.odometer <= maxMOnthy
+//   });
+// }
+
   render() {
+    // console.log(this.onfilter());
     return (
       <div className="col-lg-3">
       <label className="label-class">MAX MONTHLY PAYMENT <span className='slider1-vlaue'>${this.state.MaxMonthyPayment}</span> </label>

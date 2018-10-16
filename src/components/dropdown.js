@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './style/dropdown.css';
 import Data from '../data/data.json';
 
-class dropdown extends Component {
+class Dropdown extends Component {
     constructor() {
         super();
         this.state = {
@@ -32,9 +32,9 @@ class dropdown extends Component {
         }
       }
 
-      handleMonthylDEC = () => {
+      handleMonthylDEC = (e) => {
         console.log("Monthly")
-        this.props.OnmonthlySortDEC();
+        // this.props.OnmonthlySortDEC(this.props.Data);
         this.setState({onMonthylDEC: true});
       }
       
@@ -50,10 +50,10 @@ class dropdown extends Component {
             </button>
             {this.state.showMenu ? (
                   <div className="menu" ref={(element) => { this.dropdownMenu = element; }} >
-                    <button onClick={this.handleMonthylDEC} >Down Payment <span className='dollar-class' >$ - $$</span></button>
-                    <button>Down Payment <span className='dollar-class'>$$ - $</span></button>
-                    <button>Monthly Payment<span className='dollar-class'>$ - $$</span> </button>
-                    <button>Monthly Payment<span className='dollar-class'>$$ - $</span></button>
+                    <button onClick={() => console.log('DownPay - ASC',this.props.OnDownPaymentSortASC())} >Down Payment <span className='dollar-class' >$ - $$</span></button>
+                    <button onClick={() => console.log('DownPay - DEC',this.props.OnDownPaymentSortDEC())}>Down Payment <span className='dollar-class'>$$ - $</span></button>
+                    <button onClick={() => console.log('MonthylPay - ASC',this.props.OnmonthlySortASC())}>Monthly Payment<span className='dollar-class'>$ - $$</span> </button>
+                    <button onClick={() => console.log('MonthlyPay - DSC',this.props.OnmonthlySortDEC())}>Monthly Payment<span className='dollar-class'>$$ - $</span></button>
                   </div>
                 ): (null)
             }
@@ -61,5 +61,5 @@ class dropdown extends Component {
         );
       }
     }
-
-export default dropdown;
+// 
+export default Dropdown;

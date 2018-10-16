@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Product from './product';
 import SideBar from './sidebar';
 import './style/home.css';
-import Dropdown from './dropdown';
 import Data from '../data/data.json';
 
 class Home extends Component {
