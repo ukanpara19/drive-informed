@@ -8,6 +8,10 @@ class dropdown extends Component {
         this.state = {
           showMenu: false,
           data: Data,
+          onMonthyASC: false,
+          onMonthylDEC: false,
+          onDownASC: false,
+          onDownDec: false
         };
         this.showMenu = this.showMenu.bind(this);
         this.closeMenu = this.closeMenu.bind(this);
@@ -27,10 +31,15 @@ class dropdown extends Component {
           });  
         }
       }
-      
 
+      handleMonthylDEC = () => {
+        console.log("Monthly")
+        this.props.OnmonthlySortDEC();
+        this.setState({onMonthylDEC: true});
+      }
+      
       render() {
-        console.log(this.props.OnmonthlySortASC);
+        // console.log(this.props);
         return (
           <div>
           <div className = "data-vehicles">
@@ -41,8 +50,8 @@ class dropdown extends Component {
             </button>
             {this.state.showMenu ? (
                   <div className="menu" ref={(element) => { this.dropdownMenu = element; }} >
-                    <button >Down Payment <span className='dollar-class' >$ - $$</span></button>
-                    <button onClick= {(e) => {this.props.OnmonthlySortASC(e)}}>Down Payment <span className='dollar-class'>$$ - $</span></button>
+                    <button onClick={this.handleMonthylDEC} >Down Payment <span className='dollar-class' >$ - $$</span></button>
+                    <button>Down Payment <span className='dollar-class'>$$ - $</span></button>
                     <button>Monthly Payment<span className='dollar-class'>$ - $$</span> </button>
                     <button>Monthly Payment<span className='dollar-class'>$$ - $</span></button>
                   </div>

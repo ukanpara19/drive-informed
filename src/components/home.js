@@ -5,9 +5,6 @@ import './style/home.css';
 import Dropdown from './dropdown';
 import Data from '../data/data.json';
 
-const myData = Data.autos;
-var stringJSON = JSON.stringify(myData);
-var objsJSON = JSON.parse(stringJSON);
 class Home extends Component {
 
   constructor(props){
