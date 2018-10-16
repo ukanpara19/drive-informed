@@ -2,76 +2,77 @@ import React , {Component}  from 'react';
 import './style/product.css';
 import ProductDetails from './productDetails';
 import Data from '../data/data.json';
-import Dropdown from './dropdown';
-
-  const myData = JSON.parse(JSON.stringify(Data.autos));
-  const myData1 = JSON.parse(JSON.stringify(Data.autos));
-  const myData2 = JSON.parse(JSON.stringify(Data.autos));
-  const myData3 = JSON.parse(JSON.stringify(Data.autos));
-  const myData4 = JSON.parse(JSON.stringify(Data.autos));
 
 class Product extends Component{
   constructor(props){
     super(props)
-      this.state = {
-        data: myData
-      }
-    this.OnDownPaymentSortASCClick = this.OnDownPaymentSortASCClick.bind(this);
-    this.OnmonthlysortASCClick  =this.OnmonthlysortASCClick.bind(this);
-    this.OnmonthlysortDECClick  = this.OnmonthlysortDECClick.bind(this);
-    this.OnDownPaymentSortDECClick = this.OnDownPaymentSortDECClick.bind(this);
-  }
-    OnDownPaymentSortDECClick() { 
-      // eslint-disable-next-line
-      return (myData1.sort(function (a, b){
-      for(let i= 0 ; i<myData1.length ; i++){
-        return b.partnerPrequalification.downPayment - a.partnerPrequalification.downPayment;
-      }
-    }));
-  }
-    OnDownPaymentSortASCClick(){ 
-      // eslint-disable-next-line
-      return (myData2.sort(function (a, b){
-      for(let i= 0 ; i<myData2.length ; i++){
-        return a.partnerPrequalification.downPayment - b.partnerPrequalification.downPayment;
-      }
-    }));
-  }
-    OnmonthlysortASCClick() {
-      // eslint-disable-next-line
-      return (myData3.sort(function (a, b){
-      for(let i= 0 ; i<myData3.length ; i++){
-        return a.partnerPrequalification.emi - b.partnerPrequalification.emi;
-      }
-    }));
+    this.state = {
+      Data: Data,
+      golbalValue: 0
     }
-
-    OnmonthlysortDECClick() { 
-      // eslint-disable-next-line
-      return (myData4.sort((a, b) => {
-      for(let i= 0 ; i<myData4.length ; i++){
-        return b.partnerPrequalification.emi - a.partnerPrequalification.emi;
-      }
-    }));
+  }
+  
+  renderSwtich = (golbalValue) => {
+    switch(golbalValue){
+      case 1: 
+          console.log(this.state.golbalValue);
+          return this.props.OnmonthlySortASC().map(function(informed){
+            return <ProductDetails productInfo={informed} />
+          });
+      case 2:
+          return this.props.OnmonthlySortDSC().map(function(informed){
+            return <ProductDetails productInfo={informed} />
+          });
+          
+      case 3:
+          console.log(this.state.golbalValue);
+          return this.props.OnDownPaymentSortASC().map(function(informed){
+            return <ProductDetails productInfo={informed} />
+          });
+      case 4:
+         return this.props.OnDownPaymentSortDSC().map(function(informed){
+            return <ProductDetails productInfo={informed} />
+          });
+      default:
+          return Data.autos.map(function(informed){
+            return <ProductDetails productInfo={informed} />
+          });              
+    }
   }
 
   render(){
+  console.log(this.state.Data);
     return (
       <div>
-          <Dropdown 
-            OnDownPaymentSortDEC = {this.OnDownPaymentSortDECClick}
-            OnDownPaymentSortASC = {this.OnDownPaymentSortASCClick}
-            OnmonthlySortDEC = {this.OnmonthlysortDECClick}
-            OnmonthlySortASC = {this.OnmonthlysortASCClick}
-          />
-          <button onClick={this.OnmonthlysortASCClick}> ASC sort</button>
-          <div className= 'card-flex'>
-            {myData.map(function(informed){
-              return(
-                <ProductDetails productInfo={informed} />
-            )
-          })
-        }
+      
+      <button onClick={() => {
+        this.setState({golbalValue: 3});
+        console.log('DownPay - ASC',this.props.OnDownPaymentSortASC())
+        }}>Down Payment <span className='dollar-class' >$ - $$</span></button>
+
+      <button onClick={() => 
+      {
+      this.setState({golbalValue: 4});
+        console.log(this.state.golbalValue);
+          console.log('DownPay - DEC',this.props.OnDownPaymentSortDSC())
+      }}
+      >Down Payment <span className='dollar-class'>$$ - $</span></button>
+
+      <button onClick={() => {
+       this.setState({golbalValue: 1 });
+              console.log('MonthylPay - ASC',this.props.OnmonthlySortASC())
+       }} 
+       >Monthly Payment<span className='dollar-class'>$ - $$</span> </button>
+
+      <button onClick={() =>{
+          this.setState({golbalValue: 2 });
+          console.log(this.state.golbalValue);
+          this.setState({golbalValue: 2});
+          console.log('MonthlyPay - DSC',this.props.OnmonthlySortDSC())
+      }}>Monthly Payment<span className='dollar-class'>$$ - $</span></button>
+
+      <div className= 'card-flex'> 
+          {this.renderSwtich(this.state.golbalValue)}            
       </div> 
       </div>
     );

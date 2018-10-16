@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Slider, { createSliderWithTooltip } from 'rc-slider';
 import './style/slider.css';
+import Product from './product';
 
 const SliderTip= createSliderWithTooltip(Slider);
 

@@ -3,6 +3,7 @@ import Product from './product';
 import SideBar from './sidebar';
 import './style/home.css';
 import Data from '../data/data.json';
+import Dropdown from './dropdown';
 
 class Home extends Component {
 
@@ -20,10 +21,7 @@ class Home extends Component {
           <SideBar />
         </div>
         <div className="product-col">
-          <Product 
-            Data = {this.state.Data}
-            sortBy= {this.sortBy}
-          />
+          <Dropdown />
         </div> 
       </div>
     );
