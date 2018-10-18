@@ -39,8 +39,18 @@ class Product extends Component{
   render(){
     return (
       <div>
-          <button onClick={() => { this.setState({golbalValue: 1 }); this.props.OnmonthlySortASC()}}> Monthly Payment<span className='dollar-class'>$ - $$</span></button>
-          <button onClick={() =>{ this.setState({golbalValue: 2 }); this.setState({golbalValue: 2}); this.props.OnmonthlySortDSC()}}>Monthly Payment<span className='dollar-class'>$$ - $</span></button>
+          <button 
+              onClick= {() =>
+              { this.setState({golbalValue: 1 }) 
+                this.props.OnmonthlySortASC()}}
+                > Monthly Payment<span className='dollar-class'>$ - $$</span>
+          </button>
+          <button 
+              onClick= {() => 
+              { this.setState({golbalValue: 2 })
+                this.props.OnmonthlySortDSC()}} 
+                > Monthly Payment<span className='dollar-class'>$$ - $</span>
+          </button>
           <div className= 'card-flex'> 
             {this.renderSwtich(this.state.golbalValue)}
           </div> 
