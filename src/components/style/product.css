@@ -94,6 +94,9 @@ body > .container {
   display: block;
   width: 100%;
 }
+/* .button-class {
+	 
+} */
 
 
 @media (min-width: 768px) {
@@ -128,6 +131,7 @@ body > .container {
 }
 .downPayment-class {
 	margin-left: 5%; 
+	font-weight: 400;
 }
 
 .heading-class {

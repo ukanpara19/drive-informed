@@ -1,7 +1,6 @@
 import React from 'react';
 import Logo from '../Images/Drive-informed-logo.png';
 
-
 const Header = () => {
   return (
     <div>
@@ -14,6 +13,5 @@ const Header = () => {
     </div>
   );
 };
-
 
 export default Header;

@@ -17,7 +17,9 @@ const ProductDetails = (props) => {
         <CardBody className="card-flex-content">
           <CardTitle className="heading-class">
             {productInfo.year}
+            &nbsp;
             {productInfo.make}
+            &nbsp;
             {productInfo.model}
             <span className="emi-class">
             $
@@ -27,13 +29,16 @@ const ProductDetails = (props) => {
           </CardTitle>
           <CardSubtitle className="miles-class">
             {productInfo.odometer}
+            &nbsp;
             miles *
             {productInfo.city}
             ,
+            &nbsp;
             {productInfo.state}
             <span className="downPayment-class">
             $
               {Math.floor(productInfo.partnerPrequalification.downPayment)}
+              &nbsp;
               down
             </span>
           </CardSubtitle>
