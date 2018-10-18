@@ -1,13 +1,11 @@
 import React , {Component}  from 'react';
 import './style/product.css';
 import ProductDetails from './productDetails';
-import Data from '../data/data.json';
 
 class Product extends Component{
   constructor(props){
     super(props)
     this.state = {
-      Data: Data,
       golbalValue: 0
     }
   }
@@ -40,31 +38,11 @@ class Product extends Component{
   render(){
     return (
       <div>
-      {/* <button 
-        onClick={() => { 
-          this.setState({golbalValue: 3})
-          console.log('DownPay - ASC',this.props.OnDownPaymentSortASC())}}
-        > Down Payment <span className='dollar-class' >$ - $$</span></button>
-
-      <button 
-        onClick={() => { this.setState({golbalValue: 4});
-        console.log('DownPay - DEC',this.props.OnDownPaymentSortDSC())}}
-      > Down Payment <span className='dollar-class'>$$ - $</span></button> */}
-
-      <button 
-        onClick={() => { this.setState({golbalValue: 1 });
-         console.log('MonthylPay - ASC',this.props.OnmonthlySortASC())}} 
-       > Monthly Payment<span className='dollar-class'>$ - $$</span> </button>
-
-      <button 
-        onClick={() =>{ this.setState({golbalValue: 2 });
-        console.log(this.state.golbalValue);
-        this.setState({golbalValue: 2});
-        console.log('MonthlyPay - DSC',this.props.OnmonthlySortDSC())}}
-        >Monthly Payment<span className='dollar-class'>$$ - $</span></button>
-
-      <div className= 'card-flex'> {this.renderSwtich(this.state.golbalValue)}</div> 
-      
+          <button onClick={() => { this.setState({golbalValue: 1 }); this.props.OnmonthlySortASC()}}> Monthly Payment<span className='dollar-class'>$ - $$</span></button>
+          <button onClick={() =>{ this.setState({golbalValue: 2 }); this.setState({golbalValue: 2}); this.props.OnmonthlySortDSC()}}>Monthly Payment<span className='dollar-class'>$$ - $</span></button>
+          <div className= 'card-flex'> 
+            {this.renderSwtich(this.state.golbalValue)}
+          </div> 
       </div>
     );
   }
