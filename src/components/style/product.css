@@ -27,7 +27,6 @@
   background-color: #ffffff;
  } 
 
- /* Custom page CSS - MOBILE first */
 body > .container {
   padding: 60px 15px 0;
 }
@@ -96,8 +95,6 @@ body > .container {
   width: 100%;
 }
 
-
-/* Custom page CSS - iPad/Desktop  */
 
 @media (min-width: 768px) {
 	.container .text-muted {

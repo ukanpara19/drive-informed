@@ -91,10 +91,6 @@ body > .container {
     padding: 1em;
 }
 
-
-
-/* Custom page CSS - iPad/Desktop  */
-
 @media (min-width: 768px) {
 	.container .text-muted {
 		text-align: end;

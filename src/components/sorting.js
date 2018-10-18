@@ -1,24 +1,10 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './style/dropdown.css';
 import Product from './product';
 
 class Dropdown extends Component {
       
-      // showMenu =(event)=> {
-      //   event.preventDefault();
-      //   this.setState({ showMenu: true }, () => {
-      //     document.addEventListener('click', this.closeMenu);
-      //   });
-      // }
-      
-      // closeMenu = (event) => {
-      //   if (!this.dropdownMenu.contains(event.target)) {
-      //     this.setState({ showMenu: false }, () => {
-      //       document.removeEventListener('click', this.closeMenu);
-      //     });  
-      //   }
-      // }
-    
       OnmonthlysortASCClick = ()=> {
         let maxMonthly  = this.props.OnfilterMaxMonthly()
         // eslint-disable-next-line
@@ -44,12 +30,6 @@ class Dropdown extends Component {
         return (
           <div>
           <div className = "data-vehicles">{totalvehicles} vehicles </div>
-            {/* {this.state.showMenu ? (
-                  <div className="menu" ref={(element) => { this.dropdownMenu = element; }} >
-
-                  </div>
-                ): (null)
-            }  */}
             <Product 
             OnmonthlySortDSC = {this.OnmonthlysortDECClick}
             OnmonthlySortASC = {this.OnmonthlysortASCClick} 
@@ -59,5 +39,11 @@ class Dropdown extends Component {
         );
       }
     }
+
+Dropdown.propTypes = {
+    OnmonthlySortASC : PropTypes.func.isRequired,
+    OnmonthlySortDSC: PropTypes.func.isRequired,
+    OnfilterMaxMonthly: PropTypes.func.isRequired
+};    
 
 export default Dropdown;
