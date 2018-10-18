@@ -2,21 +2,23 @@ import React, { Component } from 'react';
 import './style/dropdown.css';
 import Data from '../data/data.json';
 import Product from './product';
+import {myData5} from './home';
 
-  const myData = JSON.parse(JSON.stringify(Data.autos));
   const myData1 = JSON.parse(JSON.stringify(Data.autos));
-  const myData2 = JSON.parse(JSON.stringify(Data.autos));
-  const myData3 = JSON.parse(JSON.stringify(Data.autos));
-  const myData4 = JSON.parse(JSON.stringify(Data.autos));
+  // const myData2 = JSON.parse(JSON.stringify(Data.autos));
+  // const myData3 = JSON.parse(JSON.stringify(Data.autos));
+  // const myData4 = JSON.parse(JSON.stringify(Data.autos));
 
 class Dropdown extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
           data: Data,
         };
         this.showMenu = this.showMenu.bind(this);
         this.closeMenu = this.closeMenu.bind(this);
+        // this.OnDownPaymentSortDECClick = this.OnDownPaymentSortDECClick.bind(this)
+        // this.OnDownPaymentSortASCClick = this.OnDownPaymentSortASCClick.bind(this)
       }
       
       showMenu(event) {
@@ -34,45 +36,50 @@ class Dropdown extends Component {
         }
       }
 
-      OnDownPaymentSortDECClick() { 
+    //   OnDownPaymentSortDECClick() { 
+    //     // eslint-disable-next-line
+    //     return (myData1.sort(function (a, b){
+    //     for(let i= 0 ; i<myData1.length ; i++){
+    //       return b.maximumDownPayment - a.maximumDownPayment;
+    //     }
+    //   }));
+    // }
+    //   OnDownPaymentSortASCClick =()=>{ 
+    //     // eslint-disable-next-line
+    //     return (myData1.sort(function (a, b){
+    //     for(let i= 0 ; i<myData1.length ; i++){
+    //       return a.maximumDownPayment - b.maximumDownPayment;
+    //     }
+    //   }));
+    // }
+    
+      OnmonthlysortASCClick =()=> {
         // eslint-disable-next-line
-        return (myData1.sort(function (a, b){
+        return ((this.props.OnfilterMaxMonthly()).sort(function (a, b){
         for(let i= 0 ; i<myData1.length ; i++){
-          return b.estimatedDownPayment - a.estimatedDownPayment;
-        }
-      }));
-    }
-      OnDownPaymentSortASCClick(){ 
-        // eslint-disable-next-line
-        return (myData2.sort(function (a, b){
-        for(let i= 0 ; i<myData2.length ; i++){
-          return a.estimatedDownPayment - b.estimatedDownPayment;
-        }
-      }));
-    }
-      OnmonthlysortASCClick() {
-        // eslint-disable-next-line
-        return (myData3.sort(function (a, b){
-        for(let i= 0 ; i<myData3.length ; i++){
           return a.partnerPrequalification.emi - b.partnerPrequalification.emi;
         }
       }));
       }
   
-      OnmonthlysortDECClick() { 
+      OnmonthlysortDECClick = () => { 
         // eslint-disable-next-line
-        return (myData4.sort((a, b) => {
-        for(let i= 0 ; i<myData4.length ; i++){
+        return ((this.props.OnfilterMaxMonthly()).sort((a, b) => {
+        for(let i= 0 ; i<myData1.length ; i++){
           return b.partnerPrequalification.emi - a.partnerPrequalification.emi;
         }
       }));
-    }      
+    }
+
       render() {
-        // console.log(this.props);
+        // console.log(this.OnfilterMaxMonthly());
+        // console.log(this.state.);
+        // console.log(this.props.filteredResult());
+        // console.log('Dropdown', filteredData);
         return (
           <div>
           <div className = "data-vehicles">
-           {Data.autoCount} Vehicles
+           {(this.props.OnfilterMaxMonthly()).length} Vehicles
            </div>
             {this.state.showMenu ? (
                   <div className="menu" ref={(element) => { this.dropdownMenu = element; }} >
@@ -85,11 +92,13 @@ class Dropdown extends Component {
             OnDownPaymentSortASC = {this.OnDownPaymentSortASCClick}
             OnmonthlySortDSC = {this.OnmonthlysortDECClick}
             OnmonthlySortASC = {this.OnmonthlysortASCClick} 
-
+            OnfilterMaxMonthly= {this.props.OnfilterMaxMonthly}
+            // OnfilterMaxDown = {this.props.OnfilterMaxDown}
+            // filteredResult = {this.props.filteredResult}
             />
           </div>
         );
       }
     }
-// 
+
 export default Dropdown;
