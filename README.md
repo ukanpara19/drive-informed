@@ -15,6 +15,6 @@
 
 3)``npm run informed ``
 
-Live on: 
+Live on: https://driveinformed.netlify.com/
 
 **Drive safe, Drive Informed !**
