@@ -3,7 +3,7 @@
 
 *This project is about rendering the correct data on the view by using the financing data set of drive Informed in React. The features include filtering of data according to the input of range Slider and then sorting the cars accroding to the given parameters.*
 
-*I have made the use of only Emi value, as the the down payment value in the data is same for all the cars. Applying sorting and functionality on the data seemed inconsequential for the app.*
+*I have made the use of only Emi value, as the the down payment value in the data is same for all the cars. Applying sorting and functionality on the downpayment seemed inconsequential for this app.*
 
 **Component:**  Header, Range Silder, Auto Card. 
 
