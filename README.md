@@ -10,7 +10,7 @@ Component:  Header, Range Silder, Auto Card.
 Steps to run: 
 
 1)Download the repo
-1) Run - npm install (When running the project form the first time, this will install all the required dependencies)
+1) Run - ``npm install`` (When running the project form the first time, this will install all the required dependencies)
 2) Run - npm run informed 
 
 Drive safe, Drive Informed !
