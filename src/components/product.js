@@ -1,4 +1,5 @@
 import React , {Component}  from 'react';
+import PropTypes from 'prop-types';
 import './style/product.css';
 import ProductDetails from './productDetails';
 
@@ -47,5 +48,11 @@ class Product extends Component{
     );
   }
 }
+
+Product.propTypes = {
+  OnmonthlySortASC : PropTypes.func.isRequired,
+  OnmonthlySortDSC: PropTypes.func.isRequired,
+  OnfilterMaxMonthly: PropTypes.func.isRequired
+  };
 
 export default Product;

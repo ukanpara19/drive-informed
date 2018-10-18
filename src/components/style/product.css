@@ -27,7 +27,6 @@
   background-color: #ffffff;
  } 
 
- /* Custom page CSS - MOBILE first */
 body > .container {
   padding: 60px 15px 0;
 }
@@ -95,9 +94,10 @@ body > .container {
   display: block;
   width: 100%;
 }
+/* .button-class {
+	 
+} */
 
-
-/* Custom page CSS - iPad/Desktop  */
 
 @media (min-width: 768px) {
 	.container .text-muted {
@@ -131,6 +131,7 @@ body > .container {
 }
 .downPayment-class {
 	margin-left: 5%; 
+	font-weight: 400;
 }
 
 .heading-class {
