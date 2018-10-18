@@ -159,7 +159,7 @@ label{
   cursor: grab;
   border-radius: 50%;
   border: solid 2px #298e67;
-  background-color: #fafafa;
+  background-color: #298e67;
   -ms-touch-action: pan-x;
       touch-action: pan-x;
 }

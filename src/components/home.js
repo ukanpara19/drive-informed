@@ -1,65 +1,61 @@
 import React, { Component } from 'react';
-import Product from './product';
-import SideBar from './sidebar';
+import './style/product.css';
 import './style/home.css';
-import Dropdown from './dropdown';
 import Data from '../data/data.json';
+import Dropdown from './dropdown';
+import './style/slider.css';
+import Slider, { createSliderWithTooltip } from 'rc-slider';
+import Header from './header';
 
-const myData = Data.autos;
-var stringJSON = JSON.stringify(myData);
-var objsJSON = JSON.parse(stringJSON);
+const SliderTip= createSliderWithTooltip(Slider);
+const informedData = JSON.parse(JSON.stringify(Data.autos));
+
 class Home extends Component {
-
   constructor(props){
     super(props)
     this.state = {
-      Data: Data
+      MaxMonthyPayment: 250,
     }
   }
-  
-//  DownPaymentSortASC = objsJSON.sort(function (a, b){
-//   for(let i= 0 ; i<objsJSON.length ; i++){
-//     return a.partnerPrequalification.downPayment - b.partnerPrequalification.downPayment;
-//   }
-// }
-// );
 
- monthlysortASC = objsJSON.sort(function (a, b){
-  for(let i= 0 ; i<objsJSON.length ; i++){
-    return a.partnerPrequalification.emi - b.partnerPrequalification.emi;
+  onMonthlyChange = (MaxMonthyPayment) =>{
+    this.setState({MaxMonthyPayment});
   }
-}
-);
 
-//  monthlysortDEC = objsJSON.sort(function (a, b){
-//       for(let i= 0 ; i<objsJSON.length ; i++){
-//         return b.partnerPrequalification.emi - a.partnerPrequalification.emi;
-//       }
-//     }
-//     );
+  onDownChange = (MaxDownPayment) => {
+    this.setState({MaxDownPayment});
+  }
 
-//   DownPaymentSortDEC = objsJSON.sort(function (a, b){
-//       for(let i= 0 ; i<objsJSON.length ; i++){
-//         return b.partnerPrequalification.downPayment - a.partnerPrequalification.downPayment;
-//       }
-//     }
-//     );
-
+  OnfilterMaxMonthly = () => {
+    // eslint-disable-next-line
+    return (informedData.filter(function(item){
+      for(let i = 0 ; i<informedData.length; i++){
+        return (Math.floor(item.partnerPrequalification.emi) <= this.state.MaxMonthyPayment);         
+      }
+  },this)
+  );
+  }
 
   render() {
     return (
       <div className='home-class'>
+        <Header />
         <div className="slider-col">
-          <SideBar />
-        </div>
-        <div className = "dropdown-class">
-          <Dropdown />
-        </div>
-        <div className="product-col">
-          <Product 
-            Data = {this.state.Data}
-            sortBy= {this.sortBy}
-          />
+          <div className="col-lg-3">
+          <label className="label-class">MAX MONTHLY PAYMENT <span className='slider1-vlaue'>$ {this.state.MaxMonthyPayment}</span> </label>
+            <SliderTip 
+              className= 'slider-class'
+              min={10}
+              max= {250}
+              value = {this.state.MaxMonthyPayment}
+              onChange = {this.onMonthlyChange}
+            />
+            </div>
+            </div>
+            <div className="product-col">
+              <Dropdown 
+                OnfilterMaxMonthly = {this.OnfilterMaxMonthly}
+              />
         </div> 
       </div>
     );

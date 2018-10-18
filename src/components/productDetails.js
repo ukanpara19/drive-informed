@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './style/product.css';
 import { Card, CardImg, CardBody,CardTitle, CardSubtitle} from 'reactstrap';
-import Data from '../data/data.json';
 
 class ProductDetails extends Component{
     render(){

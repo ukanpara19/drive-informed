@@ -1,63 +1,49 @@
 import React , {Component}  from 'react';
 import './style/product.css';
 import ProductDetails from './productDetails';
-import Data from '../data/data.json';
-
-  const myData = Data.autos;
-  const stringJSON = JSON.stringify(myData);
-  const objsJSON = JSON.parse(stringJSON); 
 
 class Product extends Component{
   constructor(props){
     super(props)
     this.state = {
-      OnmonthlysortDECClick : false,
-      OnmonthlysortASCClick: false,
-      OnDownPaymentSortASCClick:false,
-      OnDownPaymentSortDECClick: false      
+      golbalValue: 0
     }
-    this.OnDownPaymentSortASCClick = this.OnDownPaymentSortASCClick.bind(this);
   }
 
-  OnmonthlysortDECClick() {
-    objsJSON.sort((a, b) =>{
-    for(let i= 0 ; i<Data.autos.length ; i++){
-      return console.log (b.partnerPrequalification.emi - a.partnerPrequalification.emi);
+  renderSwtich = (golbalValue) => {
+    switch(golbalValue){
+      case 1: 
+          return this.props.OnmonthlySortASC().map(function(informed){
+            return <ProductDetails productInfo={informed} />
+          });
+      case 2:
+          return this.props.OnmonthlySortDSC().map(function(informed){
+            return <ProductDetails productInfo={informed} />
+          });
+      case 3:
+          return this.props.OnDownPaymentSortASC().map(function(informed){
+            return <ProductDetails productInfo={informed} />
+          });
+      case 4:
+         return this.props.OnDownPaymentSortDSC().map(function(informed){
+            return <ProductDetails productInfo={informed} />
+          });    
+      default:
+          return (this.props.OnfilterMaxMonthly()).map(function(informed){
+            return <ProductDetails productInfo={informed} />
+          });              
     }
-  });
-}
- OnmonthlysortASCClick () {
-  objsJSON.sort(function (a, b){
-   for(let i= 0 ; i<objsJSON.length ; i++){
-     return console.log(a.partnerPrequalification.emi - b.partnerPrequalification.emi);
-   }
-   this.setState({ OnmonthlysortASCClick: true});
- });
-}
+  }
 
-  OnDownPaymentSortDECClick (){ objsJSON.sort(function (a, b){
-    for(let i= 0 ; i<objsJSON.length ; i++){
-      return b.partnerPrequalification.downPayment - a.partnerPrequalification.downPayment;
-    }
-  });
-}
-  OnDownPaymentSortASCClick (){ objsJSON.sort(function (a, b){
-    for(let i= 0 ; i<objsJSON.length ; i++){
-      return a.partnerPrequalification.downPayment - b.partnerPrequalification.downPayment;
-    }
-  });
-}
   render(){
     return (
-      <div className= 'card-flex'>
-      <button onClick={this.OnmonthlysortASCClick}>EMI-ASC</button>      
-        {objsJSON.map(function(informed){
-            return(
-              <ProductDetails productInfo={informed} />
-            )
-          })
-        }
-      </div> 
+      <div>
+          <button onClick={() => { this.setState({golbalValue: 1 }); this.props.OnmonthlySortASC()}}> Monthly Payment<span className='dollar-class'>$ - $$</span></button>
+          <button onClick={() =>{ this.setState({golbalValue: 2 }); this.setState({golbalValue: 2}); this.props.OnmonthlySortDSC()}}>Monthly Payment<span className='dollar-class'>$$ - $</span></button>
+          <div className= 'card-flex'> 
+            {this.renderSwtich(this.state.golbalValue)}
+          </div> 
+      </div>
     );
   }
 }
