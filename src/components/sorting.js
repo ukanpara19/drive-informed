@@ -5,7 +5,7 @@ import Product from './product';
 
 class Dropdown extends Component {
       
-      OnmonthlysortASCClick = ()=> {
+      OnmonthlysortASCClick = () => {
         let maxMonthly  = this.props.OnfilterMaxMonthly()
         // eslint-disable-next-line
         return (maxMonthly.sort((a, b) =>{
