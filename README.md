@@ -11,7 +11,7 @@
 
 1)Download the repo
 
-2)``npm install``   (When running the project form the first time, this will install all the required dependencies)
+2)``npm install``   (When running the project for the first time, this will install all the required dependencies)
 
 3)``npm run informed ``
 
