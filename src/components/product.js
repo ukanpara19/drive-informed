@@ -20,14 +20,6 @@ class Product extends Component{
       case 2:
           return this.props.OnmonthlySortDSC().map(function(informed){
             return <ProductDetails productInfo={informed} />
-          });
-      case 3:
-          return this.props.OnDownPaymentSortASC().map(function(informed){
-            return <ProductDetails productInfo={informed} />
-          });
-      case 4:
-         return this.props.OnDownPaymentSortDSC().map(function(informed){
-            return <ProductDetails productInfo={informed} />
           });    
       default:
           return (this.props.OnfilterMaxMonthly()).map(function(informed){
