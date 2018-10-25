@@ -33,9 +33,7 @@ class Product extends Component{
       <div>
           <button 
               onClick= {() =>
-              { this.setState({golbalValue: 1 }) 
-                this.props.OnmonthlySortASC() }}
-                > Monthly Payment<span className='dollar-class'> $ - $$</span>
+              { this.setState({golbalValue: 1}) 
                 this.props.OnmonthlySortASC()}}
                 > Monthly Payment<span className='dollar-class'> $ - $$</span>
           </button>
@@ -43,8 +41,6 @@ class Product extends Component{
               onClick= {() => 
               { this.setState({golbalValue: 2 })
                 this.props.OnmonthlySortDSC() }} 
-                > Monthly Payment<span className='dollar-class'> $$ - $</span>
-                this.props.OnmonthlySortDSC()}} 
                 > Monthly Payment<span className='dollar-class'> $$ - $</span>
           </button>
           <div className= 'card-flex'> 
