@@ -20,7 +20,7 @@ class Product extends Component{
       case 2:
           return this.props.OnmonthlySortDSC().map(function(informed){
             return <ProductDetails productInfo={informed} />
-          });    
+          });
       default:
           return (this.props.OnfilterMaxMonthly()).map(function(informed){
             return <ProductDetails productInfo={informed} />
@@ -34,14 +34,18 @@ class Product extends Component{
           <button 
               onClick= {() =>
               { this.setState({golbalValue: 1 }) 
+                this.props.OnmonthlySortASC() }}
+                > Monthly Payment<span className='dollar-class'> $ - $$</span>
                 this.props.OnmonthlySortASC()}}
-                > Monthly Payment<span className='dollar-class'>$ - $$</span>
+                > Monthly Payment<span className='dollar-class'> $ - $$</span>
           </button>
           <button 
               onClick= {() => 
               { this.setState({golbalValue: 2 })
+                this.props.OnmonthlySortDSC() }} 
+                > Monthly Payment<span className='dollar-class'> $$ - $</span>
                 this.props.OnmonthlySortDSC()}} 
-                > Monthly Payment<span className='dollar-class'>$$ - $</span>
+                > Monthly Payment<span className='dollar-class'> $$ - $</span>
           </button>
           <div className= 'card-flex'> 
             {this.renderSwtich(this.state.golbalValue)}
