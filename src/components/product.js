@@ -11,7 +11,7 @@ class Product extends Component{
     }
   }
 
-  renderSwitch = (golbalValue) => {
+  renderSwtich = (golbalValue) => {
     switch(golbalValue){
       case 1: 
           return this.props.OnmonthlySortASC().map(function(informed){
@@ -20,6 +20,7 @@ class Product extends Component{
       case 2:
           return this.props.OnmonthlySortDSC().map(function(informed){
             return <ProductDetails productInfo={informed} />
+          });    
       default:
           return (this.props.OnfilterMaxMonthly()).map(function(informed){
             return <ProductDetails productInfo={informed} />
@@ -33,17 +34,17 @@ class Product extends Component{
           <button 
               onClick= {() =>
               { this.setState({golbalValue: 1 }) 
-                this.props.OnmonthlySortASC() }}
+                this.props.OnmonthlySortASC()}}
                 > Monthly Payment<span className='dollar-class'>$ - $$</span>
           </button>
           <button 
               onClick= {() => 
               { this.setState({golbalValue: 2 })
-                this.props.OnmonthlySortDSC() }} 
+                this.props.OnmonthlySortDSC()}} 
                 > Monthly Payment<span className='dollar-class'>$$ - $</span>
           </button>
           <div className= 'card-flex'> 
-            {this.renderSwitch(this.state.golbalValue)}
+            {this.renderSwtich(this.state.golbalValue)}
           </div> 
       </div>
     );
