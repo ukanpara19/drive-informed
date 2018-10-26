@@ -25,7 +25,6 @@ class Dropdown extends Component {
         }));
       }
 
-
       render() {
         const totalvehicles = (this.props.onFilterYearly()).length
         return (
@@ -43,9 +42,9 @@ class Dropdown extends Component {
     }
 
 Dropdown.propTypes = {
-    OnmonthlySortASC : PropTypes.func.isRequired,
-    OnmonthlySortDSC: PropTypes.func.isRequired,
-    OnfilterMaxMonthly: PropTypes.func.isRequired
+    OnmonthlySortASC : PropTypes.func,
+    OnmonthlySortDSC: PropTypes.func,
+    OnfilterMaxMonthly: PropTypes.func
 };    
 
 export default Dropdown;

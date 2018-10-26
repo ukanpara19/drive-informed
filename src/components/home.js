@@ -86,9 +86,9 @@ class Home extends Component {
 } 
 
 Home.propTypes = {
-  OnmonthlySortASC : PropTypes.func.isRequired,
-  OnmonthlySortDSC: PropTypes.func.isRequired,
-  OnfilterMaxMonthly: PropTypes.func.isRequired
+  OnmonthlySortASC : PropTypes.func,
+  OnmonthlySortDSC: PropTypes.func,
+  OnfilterMaxMonthly: PropTypes.func
   };
 
 export default Home;

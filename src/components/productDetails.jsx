@@ -48,8 +48,5 @@ const ProductDetails = (props) => {
   );
 };
 
-ProductDetails.propTypes = {
-  productInfo: PropTypes.instanceOf.isRequired,
-};
 
 export default ProductDetails;
