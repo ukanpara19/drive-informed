@@ -16,6 +16,7 @@ class Home extends Component {
     super(props)
     this.state = {
       MaxMonthyPayment: 250,
+      year: 2018
     }
   }
 
@@ -23,8 +24,8 @@ class Home extends Component {
     this.setState({MaxMonthyPayment});
   }
 
-  onDownChange = (MaxDownPayment) =>{
-    this.setState({MaxDownPayment});
+  onYearChange = (year) =>{
+    this.setState({year});
   }
 
   OnfilterMaxMonthly = () =>{
@@ -37,7 +38,19 @@ class Home extends Component {
   );
   }
 
+  onFilterYearly = () => {
+    const maxMonthlyFilterdata = this.OnfilterMaxMonthly();
+    // eslint-disable-next-line
+    return(maxMonthlyFilterdata.filter(function(item){
+        for(let i = 0 ; i<maxMonthlyFilterdata.length; i++){
+          return (Math.floor(item.year) <= this.state.year)
+        }
+    },this)
+    );
+  }
+
   render() {
+    console.log(this.onFilterYearly());
     return (
       <div className='home-class'>
         <Header />
@@ -51,11 +64,20 @@ class Home extends Component {
               value = {this.state.MaxMonthyPayment}
               onChange = {this.onMonthlyChange}
             />
+            <label className="label-class">YEAR <span className='slider2-vlaue'>{this.state.year}</span> </label>
+            <SliderTip 
+              className= 'slider-class'
+              min={2000}
+              max= {2018}
+              value = {this.state.year}
+              onChange = {this.onYearChange}
+            />
           </div>
           </div>
           <div className="product-col">
             <Sorting
               OnfilterMaxMonthly = {this.OnfilterMaxMonthly}
+              onFilterYearly = {this.onFilterYearly}
             />
       </div> 
     </div>
