@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import './style/product.css';
 import {
   Card, CardImg, CardBody, CardTitle, CardSubtitle,
@@ -46,10 +45,6 @@ const ProductDetails = (props) => {
       </Card>
     </div>
   );
-};
-
-ProductDetails.propTypes = {
-  productInfo: PropTypes.instanceOf.isRequired,
 };
 
 export default ProductDetails;
