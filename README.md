@@ -1,5 +1,5 @@
 
- Project: Drive Informed
+ **Project: Drive Informed**
 
 *This project is about rendering the correct data on the view by using the financing data set of drive Informed in React. The features includes filtering of car data according to the input of range Slider and then sorting them according to the given parameters.*
 
