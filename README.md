@@ -11,7 +11,7 @@
 
 2) ``npm install``   (When running the project for the first time, this will install all the required dependencies.)
 
-3) ``npm run start ``
+3) ``npm run informed ``
 
 Live on: https://driveinformed.netlify.com/
 
