@@ -6,7 +6,7 @@ import Product from './product';
 class Dropdown extends Component {
       
       OnmonthlysortASCClick = () => {
-        let maxMonthly  = this.props.OnfilterMaxMonthly()
+        let maxMonthly  = this.props.onFilterYearly()
         // eslint-disable-next-line
         return (maxMonthly.sort((a, b) =>{
             for(let i= 0 ; i<maxMonthly.length ; i++){
@@ -16,7 +16,7 @@ class Dropdown extends Component {
       }
   
       OnmonthlysortDECClick = () => { 
-        let maxMonthly  = this.props.OnfilterMaxMonthly()
+        let maxMonthly  = this.props.onFilterYearly()
         // eslint-disable-next-line
         return (maxMonthly.sort((a, b) => {
             for(let i= 0 ; i<maxMonthly.length ; i++){
@@ -25,8 +25,9 @@ class Dropdown extends Component {
         }));
       }
 
+
       render() {
-        const totalvehicles = (this.props.OnfilterMaxMonthly()).length
+        const totalvehicles = (this.props.onFilterYearly()).length
         return (
           <div>
           <div className = "data-vehicles">{totalvehicles} vehicles </div>
@@ -34,6 +35,7 @@ class Dropdown extends Component {
             OnmonthlySortDSC = {this.OnmonthlysortDECClick}
             OnmonthlySortASC = {this.OnmonthlysortASCClick} 
             OnfilterMaxMonthly= {this.props.OnfilterMaxMonthly}
+            onFilterYearly = {this.props.onFilterYearly}
             />
           </div>
         );
