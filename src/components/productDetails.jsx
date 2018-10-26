@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import './style/product.css';
 import {
   Card, CardImg, CardBody, CardTitle, CardSubtitle,
@@ -47,6 +46,5 @@ const ProductDetails = (props) => {
     </div>
   );
 };
-
 
 export default ProductDetails;

@@ -50,7 +50,6 @@ class Home extends Component {
   }
 
   render() {
-    console.log(this.onFilterYearly());
     return (
       <div className='home-class'>
         <Header />
