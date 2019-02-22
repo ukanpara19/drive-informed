@@ -2,6 +2,7 @@ import React , {Component}  from 'react';
 import PropTypes from 'prop-types';
 import './style/product.css';
 import ProductDetails from './productDetails';
+import { Button } from 'semantic-ui-react'
 
 class Product extends Component{
   constructor(props){
@@ -31,18 +32,20 @@ class Product extends Component{
   render(){
     return (
       <div>
-          <button 
+          <Button 
+            content='Primary'
               onClick= {() =>
               { this.setState({golbalValue: 1}) 
                 this.props.OnmonthlySortASC()}}
                 > Monthly Payment<span className='dollar-class'> $ - $$</span>
-          </button>
-          <button 
+          </Button>
+          <Button 
+            content='Primary'
               onClick= {() => 
               { this.setState({golbalValue: 2 })
                 this.props.OnmonthlySortDSC() }} 
                 > Monthly Payment<span className='dollar-class'> $$ - $</span>
-          </button>
+          </Button>
           <div className= 'card-flex'> 
             {this.renderSwtich(this.state.golbalValue)}
           </div> 
